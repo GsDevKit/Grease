@@ -15,7 +15,6 @@ baseline: spec
         group: 'Slime Tests' with: #('Core Tests');
         group: 'Tests' with: #('Core Tests' 'Slime Tests');
         group: 'default' with: #('Slime') ].
-
   spec
     for: #'squeak5.x'
     do: [ 
@@ -23,15 +22,18 @@ baseline: spec
         package: 'Grease-Core'
           with: [ spec includes: #('Grease-Squeak5-Core') ];
         package: 'Grease-Tests-Core'
-          with: [ spec requires: #('Grease-Squeak5-Core'); includes: #('Grease-Tests-Squeak-Core' 'Grease-Tests-Squeak5-Core') ];
+          with: [ 
+              spec
+                requires: #('Grease-Squeak5-Core');
+                includes:
+                    #('Grease-Tests-Squeak-Core' 'Grease-Tests-Squeak5-Core') ];
         package: 'Grease-Squeak5-Core'
           with: [ spec requires: #('Grease-Core') ];
         package: 'Grease-Tests-Squeak-Core'
           with: [ spec requires: #('Grease-Tests-Core') ];
         package: 'Grease-Tests-Squeak5-Core'
           with: [ spec requires: #('Grease-Tests-Squeak-Core') ].
-      self  slimeForSqueakPharo1xPharo2x: spec ].
-
+      self slimeForSqueakPharo1xPharo2x: spec ].
   spec
     for: #'pharo3.x'
     do: [ 
@@ -39,7 +41,10 @@ baseline: spec
         package: 'Grease-Core'
           with: [ spec includes: #('Grease-Pharo30-Core') ];
         package: 'Grease-Tests-Core'
-          with: [ spec requires: #('Grease-Pharo30-Core'); includes: #('Grease-Tests-Pharo20-Core') ];
+          with: [ 
+              spec
+                requires: #('Grease-Pharo30-Core');
+                includes: #('Grease-Tests-Pharo20-Core') ];
         package: 'Grease-Pharo30-Core'
           with: [ spec requires: #('Grease-Core') ];
         package: 'Grease-Tests-Pharo20-Core'
@@ -57,7 +62,10 @@ baseline: spec
         package: 'Grease-Core'
           with: [ spec includes: #('Grease-Pharo30-Core') ];
         package: 'Grease-Tests-Core'
-          with: [ spec requires: #('Grease-Pharo30-Core'); includes: #('Grease-Tests-Pharo20-Core') ];
+          with: [ 
+              spec
+                requires: #('Grease-Pharo30-Core');
+                includes: #('Grease-Tests-Pharo20-Core') ];
         package: 'Grease-Pharo30-Core'
           with: [ spec requires: #('Grease-Core') ];
         package: 'Grease-Tests-Pharo20-Core'
@@ -76,7 +84,10 @@ baseline: spec
         package: 'Grease-Core'
           with: [ spec includes: #('Grease-Pharo60-Core') ];
         package: 'Grease-Tests-Core'
-          with: [ spec requires: #('Grease-Pharo60-Core'); includes: #('Grease-Tests-Pharo20-Core') ];
+          with: [ 
+              spec
+                requires: #('Grease-Pharo60-Core');
+                includes: #('Grease-Tests-Pharo20-Core') ];
         package: 'Grease-Pharo60-Core'
           with: [ spec requires: #('Grease-Core') ];
         package: 'Grease-Tests-Pharo20-Core'
@@ -97,14 +108,16 @@ baseline: spec
               spec
                 className: 'ConfigurationOfGsCore';
                 versionString: #'stable';
-                repository: 'http://seaside.gemtalksystems.com/ss/MetacelloRepository' ];
+                repository:
+                    'http://seaside.gemtalksystems.com/ss/MetacelloRepository' ];
         project: 'UTF8'
           with: [ 
               spec
                 className: 'ConfigurationOfGsMisc';
                 versionString: #'stable';
                 loads: #('Utf8Encoding');
-                repository: 'http://seaside.gemtalksystems.com/ss/MetacelloRepository' ];
+                repository:
+                    'http://seaside.gemtalksystems.com/ss/MetacelloRepository' ];
         project: 'System-Digital-Signatures'
           copyFrom: 'UTF8'
           with: [ spec loads: #('System-Digital-Signatures') ];
@@ -118,7 +131,10 @@ baseline: spec
                 requires: #('GsCore');
                 includes: #('Grease-GemStone-Core') ];
         package: 'Grease-Tests-Core'
-          with: [ spec requires: #('Grease-GemStone-Core'); includes: #('Grease-Tests-GemStone-Core') ];
+          with: [ 
+              spec
+                requires: #('Grease-GemStone-Core');
+                includes: #('Grease-Tests-GemStone-Core') ];
         package: 'Grease-GemStone-Core'
           with: [ 
               spec
@@ -162,7 +178,7 @@ baseline: spec
                 requires: #('Grease-GemStone-Core');
                 postLoadDoIt: #'initializeLatin1ToUtf8Encodings' ] ].
   spec
-    for: #(#'gs3.2.x' #'gs3.3.x' #'gs3.4.x')
+    for: #(#'gs3.2.x' #'gs3.3.x' #'gs3.4.x' #'gs3.5.x' #'gs3.6.x')
     do: [ 
       spec
         package: 'Grease-Tests-GemStone-Core'
