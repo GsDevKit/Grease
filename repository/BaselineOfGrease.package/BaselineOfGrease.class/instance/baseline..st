@@ -89,7 +89,7 @@ baseline: spec
         group: 'Slime' with: #('Grease-Pharo40-Slime');
         group: 'Slime Tests' with: #('Grease-Tests-Slime') ].
   spec
-    for: #'gemstone'
+    for: #( #'gemstone' )
     do: [ 
       spec
         project: 'GsCore'
@@ -110,20 +110,49 @@ baseline: spec
           with: [ spec loads: #('System-Digital-Signatures') ];
         project: 'SMTPMail'
           copyFrom: 'UTF8'
-          with: [ spec loads: #('SMTPMail') ].
+          with: [ spec loads: #('SMTPMail') ];
+        yourself.
       spec
         package: 'Grease-Core'
-          with: [ 
-              spec
-                requires: #('GsCore');
-                includes: #('Grease-GemStone-Core') ];
+          with: [ spec requires: #('GsCore') ];
+        package: 'Grease-GemStone-Core'
+          with: [ spec requires: #( 'GsCore' 'UTF8' ) ];
+        yourself.
+  ].
+  spec
+    for: #( #'gemstone64' )
+    do: [ 
+      spec
+        baseline: 'GsDevKit'
+          with: [ spec repository: 'github://GsDevKit/GsDevKit:master/repository' ];
+        project: 'UTF8'
+          copyFrom: 'GsDevKit'
+          with: [ spec loads: #('Utf8Encoding') ];
+        project: 'System-Digital-Signatures'
+          copyFrom: 'UTF8'
+          with: [ spec loads: #('System-Digital-Signatures') ];
+        project: 'SMTPMail'
+          copyFrom: 'UTF8'
+          with: [ spec loads: #('SMTPMail') ];
+        yourself.
+      spec
+        package: 'Grease-GemStone-Core'
+          with: [ spec requires: #( 'UTF8' ) ];
+        yourself.
+  ].
+  spec
+    for: #( #'gemstone' #'gemstone64')
+    do: [ 
+      spec
+        package: 'Grease-Core'
+          with: [ spec includes: #('Grease-GemStone-Core') ];
         package: 'Grease-Tests-Core'
           with: [ spec requires: #('Grease-GemStone-Core'); includes: #('Grease-Tests-GemStone-Core') ];
         package: 'Grease-GemStone-Core'
           with: [ 
               spec
                 requires:
-                  #('Grease-Core' 'GsCore' 'System-Digital-Signatures' 'UTF8' 'SMTPMail') ];
+                  #('Grease-Core' 'System-Digital-Signatures' 'SMTPMail') ];
         package: 'Grease-Tests-GemStone-Core'
           with: [ spec requires: #('Grease-Tests-Core') ] ].
   spec

@@ -1,4 +1,6 @@
 doits
 initializeLatin1ToUtf8Encodings
 
-	GRUtf8CodecStream initialize
+  Smalltalk 
+    at: #'GRUtf8CodecStream'
+    ifPresent: [:cl | cl initialize ]
