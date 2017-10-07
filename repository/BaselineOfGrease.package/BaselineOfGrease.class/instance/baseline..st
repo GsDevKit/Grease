@@ -129,15 +129,18 @@ baseline: spec
           copyFrom: 'GsDevKit'
           with: [ spec loads: #('Utf8Encoding') ];
         project: 'System-Digital-Signatures'
-          copyFrom: 'UTF8'
+          copyFrom: 'GsDevKit'
           with: [ spec loads: #('System-Digital-Signatures') ];
         project: 'SMTPMail'
-          copyFrom: 'UTF8'
+          copyFrom: 'GsDevKit'
           with: [ spec loads: #('SMTPMail') ];
+        project: 'GsCore'
+          copyFrom: 'GsDevKit'
+          with: [ spec loads: #('GsCore' 'GsMonticello') ];
         yourself.
       spec
         package: 'Grease-GemStone-Core'
-          with: [ spec requires: #( 'UTF8' ) ];
+          with: [ spec requires: #( 'UTF8' 'GsCore' ) ];
         yourself.
   ].
   spec
