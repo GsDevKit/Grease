@@ -136,7 +136,7 @@ baseline: spec
           with: [ spec loads: #('SMTPMail') ];
         project: 'GsCore'
           copyFrom: 'GsDevKit'
-          with: [ spec loads: #('GsCore' 'GsMonticello') ];
+          with: [ spec loads: #('GsCore' 'GsMonticello' 'GsSqueakCommon-Core') ];
         yourself.
       spec
         package: 'Grease-GemStone-Core'
