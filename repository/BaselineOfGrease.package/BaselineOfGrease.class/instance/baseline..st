@@ -16,7 +16,7 @@ baseline: spec
         group: 'Tests' with: #('Core Tests' 'Slime Tests');
         group: 'default' with: #('Slime') ].
   spec
-    for: #'squeak5.x'
+    for: #( #'squeak5.x' )
     do: [ 
       spec
         package: 'Grease-Core'
@@ -34,6 +34,22 @@ baseline: spec
         package: 'Grease-Tests-Squeak5-Core'
           with: [ spec requires: #('Grease-Tests-Squeak-Core') ].
       self slimeForSqueakPharo1xPharo2x: spec ].
+  spec
+    for: #( #'squeak6.x' )
+    do: [ 
+      spec
+        package: 'Grease-Core'
+          with: [ spec includes: #('Grease-Squeak6-Core') ];
+        package: 'Grease-Tests-Core'
+          with: [ spec requires: #('Grease-Squeak6-Core'); includes: #('Grease-Tests-Squeak-Core' 'Grease-Tests-Squeak6-Core') ];
+        package: 'Grease-Squeak6-Core'
+          with: [ spec requires: #('Grease-Core') ];
+        package: 'Grease-Tests-Squeak-Core'
+          with: [ spec requires: #('Grease-Tests-Core') ];
+        package: 'Grease-Tests-Squeak6-Core'
+          with: [ spec requires: #('Grease-Tests-Squeak-Core') ].
+      self  slimeForSqueakPharo1xPharo2x: spec ].
+
   spec
     for: #'pharo3.x'
     do: [ 
@@ -99,6 +115,27 @@ baseline: spec
       spec
         group: 'Slime' with: #('Grease-Pharo40-Slime');
         group: 'Slime Tests' with: #('Grease-Tests-Slime') ].
+
+  spec
+    for: #(#'pharo7.x')
+    do: [ 
+      spec
+        package: 'Grease-Core'
+          with: [ spec includes: #('Grease-Pharo70-Core') ];
+        package: 'Grease-Tests-Core'
+          with: [ spec requires: #('Grease-Pharo70-Core'); includes: #('Grease-Tests-Pharo20-Core') ];
+        package: 'Grease-Pharo70-Core'
+          with: [ spec requires: #('Grease-Core') ];
+        package: 'Grease-Tests-Pharo20-Core'
+          with: [ spec requires: #('Grease-Tests-Core') ];
+        package: 'Grease-Pharo40-Slime'
+          with: [ spec requires: #('Grease-Core') ];
+        package: 'Grease-Tests-Slime'
+          with: [ spec requires: #('Grease-Pharo40-Slime') ].
+      spec
+        group: 'Slime' with: #('Grease-Pharo40-Slime');
+        group: 'Slime Tests' with: #('Grease-Tests-Slime') ].
+
   spec
     for: #'gemstone'
     do: [ 
