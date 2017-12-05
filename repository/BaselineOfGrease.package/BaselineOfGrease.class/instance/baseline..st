@@ -137,7 +137,7 @@ baseline: spec
         group: 'Slime Tests' with: #('Grease-Tests-Slime') ].
 
   spec
-    for: #( #'gemstone' )
+    for: #( #'glass' )
     do: [ 
       spec
         project: 'GsCore'
@@ -190,7 +190,10 @@ baseline: spec
         yourself.
       spec
         package: 'Grease-GemStone-Core'
-          with: [ spec requires: #( 'UTF8' 'GsCore' ) ];
+          with: [ 
+              spec
+                requires:
+                  #( 'UTF8' 'GsCore' 'System-Digital-Signatures' 'SMTPMail') ];
         yourself.
   ].
   spec
@@ -208,7 +211,7 @@ baseline: spec
           with: [ 
               spec
                 requires:
-                  #('Grease-Core' 'System-Digital-Signatures' 'SMTPMail') ];
+                  #('Grease-Core') ];
         package: 'Grease-Tests-GemStone-Core'
           with: [ spec requires: #('Grease-Tests-Core') ] ].
   spec
