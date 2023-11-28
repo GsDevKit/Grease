@@ -1,0 +1,10 @@
+RwProjectSpecificationV3 {
+  #specName : 'project',
+  #projectSpecPath : 'rowan',
+  #componentsPath : 'rowan/components',
+  #packagesPath : 'repository',
+  #projectsPath : 'rowan/projects',
+  #specsPath : 'rowan/specs',
+  #packageFormat : 'FileTree',
+  #comment : 'Grease Project'
+}

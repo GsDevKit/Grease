@@ -1,0 +1,12 @@
+RwSimpleProjectLoadComponentV2 {
+  #name : 'Core',
+  #condition : 'gemstone',
+  #packageNames : [
+    'Grease-Core',
+    'Grease-GemStone-Core',
+    'Grease-GemStone330-Core',
+    'Grease-GemStone-Kernelv360',
+    'Grease-GemStone-Kernelv370'
+  ],
+  #comment : 'Core Grease Packages'
+}

@@ -1,0 +1,22 @@
+RwLoadSpecificationV3 {
+  #specName : 'Grease',
+  #projectName : 'Grease',
+  #projectAlias : 'Grease',
+  #gitUrl : 'git@github.com:GsDevKit/Grease.git',
+  #revision : 'kurt.rowan-packaging',
+  #relativeRepositoryRoot : 'repository',
+  #projectSpecFile : 'rowan/project.ston',
+  #componentNames : [
+    'Core'
+  ],
+  #customConditionalAttributes : [ ],
+  #groupNames : [ ],
+  #platformProperties : {
+    'gemstone' : {
+      'SystemUser' : {
+        #defaultSymbolDictName : 'UserGlobals'
+      }
+    }
+  },
+  #comment : 'Grease Load Specification'
+}

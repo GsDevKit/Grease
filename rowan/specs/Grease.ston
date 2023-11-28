@@ -1,0 +1,18 @@
+RwLoadSpecificationV2 {
+  #specName : 'Grease',
+  #projectName : 'Grease',
+  #gitUrl : 'git@github.com:GsDevKit/Grease.git',
+  #revision : 'kurt.rowan-packaging',
+  #projectSpecFile : 'rowan/project.ston',
+  #componentNames : [
+    'Core'
+  ],
+  #platformProperties : {
+    'gemstone' : {
+      'SystemUser' : {
+        #defaultSymbolDictName : 'UserGlobals'
+      }
+    }
+  },
+  #comment : 'FileTree Load Specification'
+}
