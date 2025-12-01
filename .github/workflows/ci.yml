@@ -25,6 +25,8 @@ jobs:
         run: smalltalkci -s ${{ matrix.smalltalk }}
         shell: bash
         timeout-minutes: 20
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   slack-workflow-status:
     if: always()
     name: Post Workflow Status To Slack
